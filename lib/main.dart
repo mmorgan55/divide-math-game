@@ -33,21 +33,39 @@ class AppState extends State<App> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  Container(
-                    color: Colors.black,
-                    height: 75.0,
-                    width: 75.0,
-                  ),
-                  Container(
-                    color: Colors.black,
-                    height: 75.0,
-                    width: 75.0,
-                  ),
-                  Container(
-                    color: Colors.black,
-                    height: 75.0,
-                    width: 75.0,
-                  ),
+                  DragTarget(builder: (
+                    BuildContext context,
+                    List<dynamic> accepted,
+                    List<dynamic> rejected,
+                  ) {
+                    return Container(
+                      color: Colors.black,
+                      height: 75.0,
+                      width: 75.0,
+                    );
+                  }),
+                  DragTarget(builder: (
+                    BuildContext context,
+                    List<dynamic> accepted,
+                    List<dynamic> rejected,
+                  ) {
+                    return Container(
+                      color: Colors.black,
+                      height: 75.0,
+                      width: 75.0,
+                    );
+                  }),
+                  DragTarget(builder: (
+                    BuildContext context,
+                    List<dynamic> accepted,
+                    List<dynamic> rejected,
+                  ) {
+                    return Container(
+                      color: Colors.black,
+                      height: 75.0,
+                      width: 75.0,
+                    );
+                  }),
                 ],
               ),
             )

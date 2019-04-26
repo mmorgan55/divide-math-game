@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'numberTile.dart';
 
 void main() => runApp(DivideGame());
 
@@ -19,59 +20,67 @@ class App extends StatefulWidget {
 }
 
 class AppState extends State<App> {
+  String word = '';
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        padding: EdgeInsets.all(10.0),
-        height: 350.0,
-        width: 350.0,
-        color: Colors.teal,
-        child: Stack(
-          children: <Widget>[
-            Positioned(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  DragTarget(builder: (
-                    BuildContext context,
-                    List<dynamic> accepted,
-                    List<dynamic> rejected,
-                  ) {
-                    return Container(
-                      color: Colors.black,
-                      height: 75.0,
-                      width: 75.0,
-                    );
-                  }),
-                  DragTarget(builder: (
-                    BuildContext context,
-                    List<dynamic> accepted,
-                    List<dynamic> rejected,
-                  ) {
-                    return Container(
-                      color: Colors.black,
-                      height: 75.0,
-                      width: 75.0,
-                    );
-                  }),
-                  DragTarget(builder: (
-                    BuildContext context,
-                    List<dynamic> accepted,
-                    List<dynamic> rejected,
-                  ) {
-                    return Container(
-                      color: Colors.black,
-                      height: 75.0,
-                      width: 75.0,
-                    );
-                  }),
-                ],
-              ),
-            )
-          ],
+    return Stack(
+      children: <Widget>[
+        NumberTile(Offset(0.0, 0.0), "Tile"),
+        Center(
+          child: Container(
+            padding: EdgeInsets.all(10.0),
+            height: 350.0,
+            width: 350.0,
+            color: Colors.teal,
+            child: Row(
+              //TODO Move code into separate widget.
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                DragTarget(onAccept: (String string) {
+                  word = string;
+                }, builder: (
+                  BuildContext context,
+                  List<dynamic> accepted,
+                  List<dynamic> rejected,
+                ) {
+                  return Container(
+                    color: Colors.black,
+                    height: 75.0,
+                    width: 75.0,
+                    child: Center(
+                      child: Text(
+                        accepted.isEmpty ? word : '',
+                      ),
+                    ),
+                  );
+                }),
+                DragTarget(builder: (
+                  BuildContext context,
+                  List<dynamic> accepted,
+                  List<dynamic> rejected,
+                ) {
+                  return Container(
+                    color: Colors.black,
+                    height: 75.0,
+                    width: 75.0,
+                  );
+                }),
+                DragTarget(builder: (
+                  BuildContext context,
+                  List<dynamic> accepted,
+                  List<dynamic> rejected,
+                ) {
+                  return Container(
+                    color: Colors.black,
+                    height: 75.0,
+                    width: 75.0,
+                  );
+                }),
+              ],
+            ),
+          ),
         ),
-      ),
+      ],
     );
   }
 }

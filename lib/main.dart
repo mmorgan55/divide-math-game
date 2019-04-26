@@ -20,7 +20,10 @@ class App extends StatefulWidget {
 }
 
 class AppState extends State<App> {
-  String word = '';
+  String word1 = "";
+  String word2 = "";
+  String word3 = "";
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -28,16 +31,16 @@ class AppState extends State<App> {
         NumberTile(Offset(0.0, 0.0), "Tile"),
         Center(
           child: Container(
-            padding: EdgeInsets.all(10.0),
             height: 350.0,
             width: 350.0,
             color: Colors.teal,
             child: Row(
               //TODO Move code into separate widget.
+              //TODO Find way to change text of tile, or put tile in DragTarget.
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                DragTarget(onAccept: (String string) {
-                  word = string;
+                DragTarget(onAccept: (String data) {
+                  word1 = data;
                 }, builder: (
                   BuildContext context,
                   List<dynamic> accepted,
@@ -49,12 +52,15 @@ class AppState extends State<App> {
                     width: 75.0,
                     child: Center(
                       child: Text(
-                        accepted.isEmpty ? word : '',
+                        word1,
+                        style: TextStyle(color: Colors.white, fontSize: 18.0),
                       ),
                     ),
                   );
                 }),
-                DragTarget(builder: (
+                DragTarget(onAccept: (String data) {
+                  word2 = data;
+                }, builder: (
                   BuildContext context,
                   List<dynamic> accepted,
                   List<dynamic> rejected,
@@ -63,9 +69,17 @@ class AppState extends State<App> {
                     color: Colors.black,
                     height: 75.0,
                     width: 75.0,
+                    child: Center(
+                      child: Text(
+                        word2,
+                        style: TextStyle(color: Colors.white, fontSize: 18.0),
+                      ),
+                    ),
                   );
                 }),
-                DragTarget(builder: (
+                DragTarget(onAccept: (String data) {
+                  word3 = data;
+                }, builder: (
                   BuildContext context,
                   List<dynamic> accepted,
                   List<dynamic> rejected,
@@ -74,6 +88,12 @@ class AppState extends State<App> {
                     color: Colors.black,
                     height: 75.0,
                     width: 75.0,
+                    child: Center(
+                      child: Text(
+                        word3,
+                        style: TextStyle(color: Colors.white, fontSize: 18.0),
+                      ),
+                    ),
                   );
                 }),
               ],

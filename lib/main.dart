@@ -31,26 +31,37 @@ class AppState extends State<App> {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        NumberTile(Offset(0.0, 0.0), "Tile"),
+        NumberTile("Tile"),
         Center(
           child: Container(
-              height: 350.0,
-              width: 350.0,
-              color: Colors.teal,
-              child: GridView.builder(
-                physics: NeverScrollableScrollPhysics(),
-                padding: EdgeInsets.all(5.0),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 4,
-                    mainAxisSpacing: 5.0,
-                    crossAxisSpacing: 5.0),
-                itemBuilder: (context, position) {
-                  return Container(
-                    child: GameSquare(),
-                  );
-                },
-                itemCount: 16,
-              )),
+            height: 350.0,
+            width: 350.0,
+            color: Colors.teal,
+            child: GridView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              padding: EdgeInsets.all(5.0),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 4,
+                  mainAxisSpacing: 5.0,
+                  crossAxisSpacing: 5.0),
+              itemBuilder: (context, position) {
+                return Container(
+                  child: GameSquare(),
+                );
+              },
+              itemCount: 16,
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 25.0,
+          right: 10.0,
+          child: Container(
+            height: 100.0,
+            width: 100.0,
+            color: Colors.black,
+            child: Center(child: NumberTile("Number")),
+          ),
         ),
       ],
     );

@@ -21,7 +21,6 @@ class _NumberTileState extends State<NumberTile> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: This is currently used for testing.
     return Positioned(
       left: position.dx,
       top: position.dy,

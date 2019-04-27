@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'numberTile.dart';
+import 'number_tile.dart';
 import 'game_sqaure.dart';
 
 void main() => runApp(DivideGame());
@@ -21,6 +21,12 @@ class App extends StatefulWidget {
 }
 
 class AppState extends State<App> {
+  List<List<GameSquare>> gameBoard = List.generate(3, (i) {
+    return List.generate(3, (j) {
+      GameSquare();
+    });
+  });
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -28,18 +34,24 @@ class AppState extends State<App> {
         NumberTile(Offset(0.0, 0.0), "Tile"),
         Center(
           child: Container(
-            height: 350.0,
-            width: 350.0,
-            color: Colors.teal,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                GameSquare(),
-                GameSquare(),
-                GameSquare(),
-              ],
-            ),
-          ),
+              height: 350.0,
+              width: 350.0,
+              color: Colors.teal,
+              padding: EdgeInsets.all(5.0),
+              child: GridView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                padding: EdgeInsets.all(2.0),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    mainAxisSpacing: 5.0,
+                    crossAxisSpacing: 5.0),
+                itemBuilder: (context, position) {
+                  return Container(
+                    child: GameSquare(),
+                  );
+                },
+                itemCount: 9,
+              )),
         ),
       ],
     );

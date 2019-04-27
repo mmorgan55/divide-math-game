@@ -19,8 +19,8 @@ class _GameSquareState extends State<GameSquare> {
     ) {
       return Container(
         color: Colors.black,
-        height: 75.0,
-        width: 75.0,
+        // height: 70.0,
+        // width: 70.0,
         child: Center(
           child: Text(
             word,

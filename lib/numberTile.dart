@@ -7,10 +7,10 @@ class NumberTile extends StatefulWidget {
   NumberTile(this.initPos, this.label);
 
   @override
-  NumberTileState createState() => NumberTileState();
+  _NumberTileState createState() => _NumberTileState();
 }
 
-class NumberTileState extends State<NumberTile> {
+class _NumberTileState extends State<NumberTile> {
   Offset position = Offset(0.0, 0.0);
 
   @override

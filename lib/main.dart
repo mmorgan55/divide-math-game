@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'numberTile.dart';
+import 'game_sqaure.dart';
 
 void main() => runApp(DivideGame());
 
@@ -39,63 +40,9 @@ class AppState extends State<App> {
               //TODO Find way to change text of tile, or put tile in DragTarget.
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                DragTarget(onAccept: (String data) {
-                  word1 = data;
-                }, builder: (
-                  BuildContext context,
-                  List<dynamic> accepted,
-                  List<dynamic> rejected,
-                ) {
-                  return Container(
-                    color: Colors.black,
-                    height: 75.0,
-                    width: 75.0,
-                    child: Center(
-                      child: Text(
-                        word1,
-                        style: TextStyle(color: Colors.white, fontSize: 18.0),
-                      ),
-                    ),
-                  );
-                }),
-                DragTarget(onAccept: (String data) {
-                  word2 = data;
-                }, builder: (
-                  BuildContext context,
-                  List<dynamic> accepted,
-                  List<dynamic> rejected,
-                ) {
-                  return Container(
-                    color: Colors.black,
-                    height: 75.0,
-                    width: 75.0,
-                    child: Center(
-                      child: Text(
-                        word2,
-                        style: TextStyle(color: Colors.white, fontSize: 18.0),
-                      ),
-                    ),
-                  );
-                }),
-                DragTarget(onAccept: (String data) {
-                  word3 = data;
-                }, builder: (
-                  BuildContext context,
-                  List<dynamic> accepted,
-                  List<dynamic> rejected,
-                ) {
-                  return Container(
-                    color: Colors.black,
-                    height: 75.0,
-                    width: 75.0,
-                    child: Center(
-                      child: Text(
-                        word3,
-                        style: TextStyle(color: Colors.white, fontSize: 18.0),
-                      ),
-                    ),
-                  );
-                }),
+                GameSquare(),
+                GameSquare(),
+                GameSquare(),
               ],
             ),
           ),

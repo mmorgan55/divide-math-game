@@ -21,10 +21,6 @@ class App extends StatefulWidget {
 }
 
 class AppState extends State<App> {
-  String word1 = "";
-  String word2 = "";
-  String word3 = "";
-
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -36,8 +32,6 @@ class AppState extends State<App> {
             width: 350.0,
             color: Colors.teal,
             child: Row(
-              //TODO Move code into separate widget.
-              //TODO Find way to change text of tile, or put tile in DragTarget.
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 GameSquare(),

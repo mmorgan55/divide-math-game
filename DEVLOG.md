@@ -6,4 +6,3 @@
 
 ## Day 2
 * Ended up not focusing on the game logic and focused on making code more modular/clean and getting a grid of GameSquares set up. Took some fiddling around, but I was finally able to make an evenly spaced grid of GameSquares. Interesting (annoying) bug that hindered me was causing the grid to shift down inside the container and cut off the lass row of squares on the bottom. Turns out, not setting the padding on the GridView.builder was causing it. No clue why, but that is 30 minutes I'm not getting back. I think the next best step is set up how I want the GameSquares should change when new data is dropped into them and make the NumberTile class more representative of what the final project will be.
-

@@ -21,8 +21,8 @@ class App extends StatefulWidget {
 }
 
 class AppState extends State<App> {
-  List<List<GameSquare>> gameBoard = List.generate(3, (i) {
-    return List.generate(3, (j) {
+  List<List<GameSquare>> gameBoard = List.generate(4, (i) {
+    return List.generate(4, (j) {
       GameSquare();
     });
   });
@@ -37,12 +37,11 @@ class AppState extends State<App> {
               height: 350.0,
               width: 350.0,
               color: Colors.teal,
-              padding: EdgeInsets.all(5.0),
               child: GridView.builder(
                 physics: NeverScrollableScrollPhysics(),
-                padding: EdgeInsets.all(2.0),
+                padding: EdgeInsets.all(5.0),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
+                    crossAxisCount: 4,
                     mainAxisSpacing: 5.0,
                     crossAxisSpacing: 5.0),
                 itemBuilder: (context, position) {
@@ -50,7 +49,7 @@ class AppState extends State<App> {
                     child: GameSquare(),
                   );
                 },
-                itemCount: 9,
+                itemCount: 16,
               )),
         ),
       ],

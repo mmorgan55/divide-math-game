@@ -26,17 +26,20 @@ class _NumberTileState extends State<NumberTile> {
       top: position.dy,
       child: Draggable(
         data: widget.label,
-        child: Container(
-          height: 75.0,
-          width: 75.0,
-          color: Colors.red,
-          child: Center(
-            child: Text(
-              widget.label,
-              style: TextStyle(
-                color: Colors.white,
-                decoration: TextDecoration.none,
-                fontSize: 15.0,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(15.0),
+          child: Container(
+            height: 75.0,
+            width: 75.0,
+            color: Colors.red,
+            child: Center(
+              child: Text(
+                widget.label,
+                style: TextStyle(
+                  color: Colors.white,
+                  decoration: TextDecoration.none,
+                  fontSize: 15.0,
+                ),
               ),
             ),
           ),
@@ -47,10 +50,13 @@ class _NumberTileState extends State<NumberTile> {
           });
         },
         childWhenDragging: Container(),
-        feedback: Container(
-          height: 75.0,
-          width: 75.0,
-          color: Colors.red.withOpacity(0.5),
+        feedback: ClipRRect(
+          borderRadius: BorderRadius.circular(15.0),
+          child: Container(
+            height: 75.0,
+            width: 75.0,
+            color: Colors.red.withOpacity(0.5),
+          ),
         ),
       ),
     );

@@ -7,11 +7,15 @@ class GameSquare extends StatefulWidget {
 
 class _GameSquareState extends State<GameSquare> {
   String word = "";
+  Color caughtColor = Colors.black;
+  bool hasData = false;
 
   @override
   Widget build(BuildContext context) {
-    return DragTarget(onAccept: (String data) {
-      word = data;
+    return DragTarget(onAccept: (List data) {
+      word = data[0];
+      caughtColor = data[1];
+      hasData = true;
     }, builder: (
       BuildContext context,
       List<dynamic> candidateData,
@@ -20,7 +24,7 @@ class _GameSquareState extends State<GameSquare> {
       return ClipRRect(
         borderRadius: BorderRadius.circular(15.0),
         child: Container(
-          color: candidateData.isEmpty ? Colors.black : Colors.black45,
+          color: checkData(hasData, candidateData),
           child: Center(
             child: Text(
               word,
@@ -30,5 +34,13 @@ class _GameSquareState extends State<GameSquare> {
         ),
       );
     });
+  }
+}
+
+Color checkData(bool hasData, List<dynamic> data) {
+  if (hasData) {
+    return Colors.red;
+  } else {
+    return data.isEmpty ? Colors.black : Colors.black45;
   }
 }

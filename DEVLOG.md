@@ -1,6 +1,9 @@
 # Introduction
-* This file is mainly to log my process as I am developing this. I think that this will help me see certain issues in my development process and hopefully help me become a better developer by looking back and see where I could have done better.
+* This file is mainly to log my process/thoughts as I am developing this app. I think that this could help me see certain issues in my development process and hopefully help me become a better developer by looking back and see where I could have done better.
 
-## Days 1 & 2
+## Day 1
 * For the most part, day one was me trying to create a basic layout and learn more about how Draggable and DragTarget classes worked. It was certainly a process and more difficult to find what was going wrong, especially when trying to lean how to transfer data from the Draggable to the DragTarget. By day two, I was able to successfully get data from the Draggables into the DragTargets. However, I think that I need to focus more on the logic of the game itself before I worry about creating the UI.
+
+## Day 2
+* Ended up not focusing on the game logic and focused on making code more modular/clean and getting a grid of GameSquares set up. Took some fiddling around, but I was finally able to make an evenly spaced grid of GameSquares. Interesting (annoying) bug that hindered me was causing the grid to shift down inside the container and cut off the lass row of squares on the bottom. Turns out, not setting the padding on the GridView.builder was causing it. No clue why, but that is 30 minutes I'm not getting back. I think the next best step is set up how I want the GameSquares should change when new data is dropped into them and make the NumberTile class more representative of what the final project will be.
 

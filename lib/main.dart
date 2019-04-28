@@ -31,7 +31,6 @@ class AppState extends State<App> {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        NumberTile("Tile"),
         Center(
           child: Container(
             height: 350.0,
@@ -53,9 +52,10 @@ class AppState extends State<App> {
             ),
           ),
         ),
+        Positioned(bottom: 25.0, right: 10.0, child: HoldSquare()),
         Positioned(
           bottom: 25.0,
-          right: 10.0,
+          right: 130.0,
           child: Container(
             height: 100.0,
             width: 100.0,

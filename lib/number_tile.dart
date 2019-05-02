@@ -18,7 +18,7 @@ class _NumberTileState extends State<NumberTile> {
   @override
   Widget build(BuildContext context) {
     return Draggable(
-      data: [widget.label, Colors.red],
+      data: widget,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(15.0),
         child: Container(

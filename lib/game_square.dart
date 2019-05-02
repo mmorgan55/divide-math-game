@@ -13,30 +13,33 @@ class _GameSquareState extends State<GameSquare> {
 
   @override
   Widget build(BuildContext context) {
-    return DragTarget(onAccept: (List data) {
-      word = data[0];
-      caughtColor = data[1];
-      hasData = true;
-    }, builder: (
-      BuildContext context,
-      List<dynamic> candidateData,
-      List<dynamic> rejected,
-    ) {
-      return ClipRRect(
-        borderRadius: BorderRadius.circular(15.0),
-        child: Container(
-          height: 100.0,
-          width: 100.0,
-          color: _checkData(hasData, candidateData),
-          child: Center(
-            child: Text(
-              word,
-              style: TextStyle(color: Colors.white, fontSize: 18.0),
+    return DragTarget(
+      onAccept: (List data) {
+        word = data[0];
+        caughtColor = data[1];
+        hasData = true;
+      },
+      builder: (
+        BuildContext context,
+        List<dynamic> candidateData,
+        List<dynamic> rejected,
+      ) {
+        return ClipRRect(
+          borderRadius: BorderRadius.circular(15.0),
+          child: Container(
+            height: 100.0,
+            width: 100.0,
+            color: _checkData(hasData, candidateData),
+            child: Center(
+              child: Text(
+                word,
+                style: TextStyle(color: Colors.white, fontSize: 18.0),
+              ),
             ),
           ),
-        ),
-      );
-    });
+        );
+      },
+    );
   }
 }
 
@@ -52,10 +55,8 @@ class _HoldSquareState extends State<HoldSquare> {
     String word = "";
     bool hasTile = false;
 
-    return DragTarget(onAccept: (List data) {
-      word = data[0];
-      heldTile = NumberTile(word);
-      hasTile = true;
+    return DragTarget<NumberTile>(onAccept: (data) {
+      heldTile = data;
     }, builder: (
       BuildContext context,
       List<dynamic> candidateData,
@@ -64,12 +65,13 @@ class _HoldSquareState extends State<HoldSquare> {
       return ClipRRect(
         borderRadius: BorderRadius.circular(15.0),
         child: Container(
-            height: 100.0,
-            width: 100.0,
-            color: _checkData(hasTile, candidateData),
-            child: Center(
-              child: hasTile ? null : NumberTile(word),
-            )),
+          height: 100.0,
+          width: 100.0,
+          color: _checkData(hasTile, candidateData),
+          child: Center(
+            child: heldTile,
+          ),
+        ),
       );
     });
   }

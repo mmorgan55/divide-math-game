@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 
 class NumberTile extends StatefulWidget {
   final String label;
+  static const Color color = Colors.red;
 
   NumberTile(this.label);
 
   @override
   _NumberTileState createState() => _NumberTileState();
+
+  String getLabel() => label;
+  Color getColor() => color;
 }
 
 class _NumberTileState extends State<NumberTile> {

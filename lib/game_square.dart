@@ -13,10 +13,10 @@ class _GameSquareState extends State<GameSquare> {
 
   @override
   Widget build(BuildContext context) {
-    return DragTarget(
-      onAccept: (List data) {
-        word = data[0];
-        caughtColor = data[1];
+    return DragTarget<NumberTile>(
+      onAccept: (data) {
+        word = data.getLabel();
+        caughtColor = data.getColor();
         hasData = true;
       },
       builder: (

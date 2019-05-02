@@ -52,7 +52,7 @@ class AppState extends State<App> {
             ),
           ),
         ),
-        Positioned(bottom: 25.0, right: 10.0, child: HoldSquare()),
+        Positioned(bottom: 25.0, right: 10.0, child: Container()),
         Positioned(
           bottom: 25.0,
           right: 130.0,
